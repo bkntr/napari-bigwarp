@@ -1,0 +1,11 @@
+site_name: napari-bigwarp
+site_description: BigWarp-like interface for napari
+site_author: Ben Kantor
+
+theme: readthedocs
+
+
+repo_url: https://github.com/bkntr/napari-bigwarp
+
+pages:
+- Home: index.md
