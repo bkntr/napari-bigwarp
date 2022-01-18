@@ -1,5 +1,7 @@
-from napari_bigwarp import ExampleQWidget, example_magic_widget
 import numpy as np
+
+from napari_bigwarp import ExampleQWidget, example_magic_widget
+
 
 # make_napari_viewer is a pytest fixture that returns a napari viewer object
 # capsys is a pytest fixture that captures stdout and stderr output streams

@@ -9,11 +9,10 @@ Replace code below according to your needs.
 import magicgui
 import napari
 import numpy as np
-from PyQt5.QtWidgets import QVBoxLayout
 from napari.layers import Image
 from napari.utils.events import Event
 from napari_plugin_engine import napari_hook_implementation
-from qtpy.QtWidgets import QWidget
+from qtpy.QtWidgets import QVBoxLayout, QWidget
 
 from napari_bigwarp.bigwarp import bigwarp
 
@@ -79,7 +78,10 @@ class BigWarpModel:
             self.fixed_result_layer = self._viewer.add_image(
                 self.fixed_layer.data,
                 name="[BW] Fixed result",
-                translate=[0, self.moving_layer.data.shape[1] + self.fixed_layer.data.shape[1]],
+                translate=[
+                    0,
+                    self.moving_layer.data.shape[1] + self.fixed_layer.data.shape[1],
+                ],
                 colormap="red",
             )
         else:
@@ -147,16 +149,9 @@ class BigWarpModel:
             event.source.selected_data = {event.source.data.shape[0] - 1}
             event.source.remove_selected()
 
-        n_moving_points = len(self.moving_points_layer.data)
-        n_fixed_points = len(self.fixed_points_layer.data)
-
         if moving_value is not None:
-            # if n_moving_points > n_fixed_points:
-            #     return
             add_to_layer = self.moving_points_layer
         elif fixed_value is not None:
-            # if n_fixed_points > n_moving_points:
-            #     return
             add_to_layer = self.fixed_points_layer
         else:
             return

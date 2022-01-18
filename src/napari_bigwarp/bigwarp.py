@@ -2,7 +2,12 @@ import cv2
 import numpy as np
 
 
-def bigwarp(fixed: np.ndarray, moving: np.ndarray, fixed_points: np.ndarray, moving_points: np.ndarray):
+def bigwarp(
+    fixed: np.ndarray,
+    moving: np.ndarray,
+    fixed_points: np.ndarray,
+    moving_points: np.ndarray,
+):
     moving_pts_init = np.array(
         [
             [0.0, 0.0],
