@@ -1,8 +1,4 @@
-
 __version__ = "0.0.1"
 
 
-
-
-from ._dock_widget import napari_experimental_provide_dock_widget, ExampleQWidget, example_magic_widget
-from ._function import napari_experimental_provide_function
+from ._bigwarp_widget import napari_experimental_provide_dock_widget, BigWarpQWidget
