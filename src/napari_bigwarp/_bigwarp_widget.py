@@ -14,8 +14,6 @@ from napari.utils.events import Event
 from napari_plugin_engine import napari_hook_implementation
 from qtpy.QtWidgets import QVBoxLayout, QWidget
 
-from napari_bigwarp.bigwarp import bigwarp
-
 
 class BigWarpQWidget(QWidget):
     def __init__(self, napari_viewer):
@@ -161,6 +159,10 @@ class BigWarpModel:
             if (len(self.moving_points_layer.data) > 0) and (
                 len(self.moving_points_layer.data) == len(self.fixed_points_layer.data)
             ):
+                # tests fail with cryptic message if this import is performed in the beginning of the file
+                # (due to opencv import)
+                from napari_bigwarp.bigwarp import bigwarp
+
                 self.moving_result_layer.data = bigwarp(
                     fixed=self.fixed_layer.data,
                     moving=self.moving_layer.data,
